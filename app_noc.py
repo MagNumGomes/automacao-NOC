@@ -9,11 +9,17 @@ import os
 from datetime import datetime
 from playwright.sync_api import sync_playwright
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 # ==========================================
 # CONFIGURAÇÃO DA API DO GEMINI
 # ==========================================
-# Insira a sua chave gerada no Google AI Studio
-API_KEY = "SUA_CHAVE_API_AQUI" 
+# Chave lida a partir do arquivo .env ou variável de ambiente GEMINI_API_KEY
+API_KEY = os.getenv("GEMINI_API_KEY", "SUA_CHAVE_API_AQUI")
 genai.configure(api_key=API_KEY)
 
 def obter_saudacao():
@@ -112,7 +118,7 @@ class GeradorIA_NOC:
         self.root.update()
 
         try:
-            model = genai.GenerativeModel('gemini-1.5-flash')
+            model = genai.GenerativeModel('gemini-3.8-flash')
             prompt = """
             Analise a imagem deste alerta de monitoramento.
             Extraia exatamente as informações solicitadas e retorne APENAS um JSON válido, sem formatação extra.

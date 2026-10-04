@@ -1,0 +1,50 @@
+# Ambientes virtuais (Virtual Environments)
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / arquivos de cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Dados sensíveis e variáveis de ambiente
+.env
+.env.*
+*.env
+!.env.example
+
+# Perfil do navegador e dados de sessão (Playwright)
+movidesk_profile/
+.playwright/
+test-results/
+playwright-report/
+
+# Distribuição / empacotamento
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.temp
+
+# Configurações de IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Arquivos do sistema operacional
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
