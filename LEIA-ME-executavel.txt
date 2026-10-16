@@ -1,0 +1,62 @@
+ORQUESTRADOR SRE NOC — LOCAL PRIMEIRO
+
+ABRIR
+Abra OrquestradorNOC.exe. Mantenha _internal junto dele.
+Python e VS Code não são necessários. Microsoft Edge é necessário.
+O fluxo principal funciona sem chaves de IA.
+
+INSTALAR / ATUALIZAR A EXTENSÃO
+1. No NOC, menu "... > Instalar extensão do Edge".
+2. Em edge://extensions/, ative Modo do desenvolvedor.
+3. Carregue a pasta indicada: %LOCALAPPDATA%\AutomacaoNOC\edge_extension.
+4. Use o perfil já logado no Zabbix e Movidesk.
+Ao atualizar, abra o NOC, recarregue a extensão e as páginas dos sites.
+
+IMPORTAR ALERTAS SEM IA
+1. No aplicativo, menu "... > Conectar Zabbix".
+2. No Zabbix, expanda "NOC — dados locais, sem IA" e use "Enviar ao NOC".
+Alternativa: "Copiar dados para NOC" no navegador e "Importar dados" no NOC.
+Os userscripts Tampermonkey estão na pasta tampermonkey deste pacote.
+Use extensão ou userscript equivalente na página para evitar botões duplicados.
+Na lista de problemas, selecione até 100 eventos para importar em lote.
+Reconecte após reiniciar o aplicativo/navegador ou depois de 12 horas.
+
+FILA E MOVIDESK
+Cada incidente guarda campos e print próprios. Troque pelo seletor no topo.
+"+ Novo" preserva os anteriores; "... > Remover" exclui apenas o item local.
+Recapturas da mesma instância + eventid atualizam o mesmo incidente.
+Clique em "Abrir Movidesk", revise, cole o print e salve manualmente.
+O número retorna ao incidente original, mesmo que outro esteja selecionado.
+Mantenha o NOC aberto; se fechar/reiniciar ou expirar, digite o número manualmente.
+
+PRINT E OCR
+Capture com Win+Shift+S e use "Ler print".
+O OCR do Windows e as regras locais não consomem tokens.
+Instale Português ou Inglês nas configurações de idioma, se solicitado.
+Para um evento diferente disponível apenas como imagem, use "+ Novo".
+
+IA OPCIONAL
+"Completar com IA" (menu ...) pode resolver campos ausentes via Groq (texto) e Gemini
+(visão, quando necessário). Configure as chaves em "... > Configurações" e reinicie.
+IA_AUTOMATICA=false é o padrão. Se ativar true, o botão indicará "Ler print + IA".
+Dados locais são preservados em falhas; resultados completos usam cache de sessão.
+O painel de tokens mostra uso reportado, não uma estimativa de faturamento.
+GEMINI_MAX_OUTPUT_TOKENS e GROQ_MAX_COMPLETION_TOKENS limitam a saída,
+não os tokens de entrada nem a cota total da conta.
+
+COMUNICADOS E EVIDÊNCIAS
+WhatsApp, Teams e e-mail são templates locais, na aba Comunicar.
+No e-mail, copie assunto, corpo e recorte do print.
+No Zabbix também há cópia de imagem sob demanda e e-mail + imagem.
+Para evidência exata dos pixels da tela, use Win+Shift+S.
+
+DADOS E CONFIGURAÇÃO
+Use Abrir configuracoes.cmd. Reinicie após editar o .env.
+Configuração: %LOCALAPPDATA%\AutomacaoNOC\.env
+Fila, prints e logs: %LOCALAPPDATA%\AutomacaoNOC\.noc_data
+O login permanece no Edge. Fechar o NOC não fecha suas guias.
+
+ATUALIZAR / DISTRIBUIR
+Copie a pasta OrquestradorNOC inteira. Os dados locais sobrevivem a builds.
+Rascunhos antigos são migrados para a fila no próximo salvamento.
+Veja manual-noc.md neste pacote para o passo a passo e solução de problemas.

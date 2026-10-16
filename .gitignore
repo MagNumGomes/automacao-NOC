@@ -1,6 +1,7 @@
 # Ambientes virtuais (Virtual Environments)
 venv/
 .venv/
+.venv-build/
 env/
 ENV/
 env.bak/
@@ -20,6 +21,7 @@ __pycache__/
 
 # Perfil do navegador e dados de sessão (Playwright)
 movidesk_profile/
+movidesk_edge_profile/
 .playwright/
 test-results/
 playwright-report/
@@ -31,6 +33,7 @@ dist/
 .eggs/
 
 # Logs e arquivos temporários
+.noc_data/
 *.log
 *.tmp
 *.temp
@@ -47,4 +50,3 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 .DS_Store
-
